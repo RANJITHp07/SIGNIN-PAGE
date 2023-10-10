@@ -109,11 +109,11 @@ input {
 
 
 #email,#username,#password,#confirm_password{
-    width: 90%;
+    width: 89.5%;
 }
 
 #firstname,#lastname{
-    width: 41%;
+    width: 40.5%;
 }
 
 #submit{
@@ -128,6 +128,60 @@ input {
    border:none;
    
 }
+
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+    .signIn{
+        width:100%
+    }
+    #firstname,#lastname{
+        width: 38%;
+    }
+    #email,#username,#password,#confirm_password{
+        width: 87.5%;
+    }
+  }
+
+
+@media(min-width:700px) and (max-width:999px){
+    .image{
+        display:none;
+    }
+    .form_detail{
+        width: 100%;
+        margin-left:1.5rem;
+        margin-bottom:3rem;
+    }
+}
+
+@media(max-width:699px){
+    .image{
+        display:none;
+    }
+    .form_detail{
+        width: 100%;
+        margin-left:0.8rem;
+        margin-right: 0.8rem;
+        margin-bottom:3rem;
+    }
+    .signIn{
+        width:100%;
+        margin:0.3rem;
+        min-height:100vh
+    }
+
+    #firstname,#lastname{
+        width: 89.5%;
+    }
+    body{
+        display: block;
+    }
+    .signin_btn{
+        margin:0px
+    }
+}
+
+
 
 
 
