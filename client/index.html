@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS link -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Sign In page</title>
+    <!--FONT LINK-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div class="signIn">
+        <div class="image">
+            <div class="desc">
+                <h1 >Altitude Air</h1>
+                <hr/>
+                <p>We  promise to ensure that your well being is taken care of while traveling with us.
+                   Boasting top in class fleet inventory and a 5 star approval for our in-flight experience.
+                   you know you're getting the best from  Altitude with no attitude
+                </p>
+            </div>
+            <img src="https://maddysavenue.com/wp-content/uploads/2016/12/Carry-On-Items.jpg.webp" class="flight-image" alt="flight image"/>
+            
+        </div>
+        <div class="form_detail">
+            <div class="form_desc">
+                <div>
+                    <button class="signin_btn">SIGN IN</button>
+                </div>
+                
+                <h1>Explore & Experience</h1>
+                <h5>Get onto your most comfortable journey yet. All the way up</h5>
+            </div>
+            
+            <form id="submit-form" role="form" action=""  method="post" >
+                <input type="text" name="firstname" id="firstname" placeholder="First Name"/>
+                <input type="text" name="lastname" id="lastname" placeholder="Last Name"/>
+                <input type="email" name="email" id="email" placeholder="Email"/>
+                <input type="username" name="username" id="username" placeholder="Username"/>
+                <input type="password" name="password" id="password" placeholder="Password"/>
+                <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm password"/>
+                <button type="submit" id="submit">GET STARTED</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        
+        $("#submit-form").submit((e)=>{
+            
+            e.preventDefault()
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    
+            if(username.value.length<4 && firstname.value.length<4){
+                alert("Minimum 4 characters required for username and firstname")
+            }
+            else if(!emailRegex.test(email.value)){
+                    alert("Enter a valid email")
+            }
+            else if(password.value!==confirm_password.value){
+                alert("The passwords are not matching")
+            }else{
+                $.ajax({
+                url:"http://localhost:3000/login",
+                data:$("#submit-form").serialize(),
+                method:"post",
+                success:function (response){
+                    alert("Form submitted successfully")
+                    window.location.reload()
+                   
+                },
+                error:function (err){
+                    console.log(err)
+                    alert("Something Error")
+    
+                }
+                
+            })
+            }
+            
+        
+        })
+    </script>
+</body>
+</html>
